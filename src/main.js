@@ -20,7 +20,7 @@
 ;   2. Type: `winget install --id Git.Git -e --source winget`
 ;   3. Type: `winget install -e --id OpenJS.NodeJS`
 ;   4. Close and re-open powershell
-;   5. Type: `git clone https://github.com/itonasd/auto-evaluation-tool`
+;   5. Type: `git clone https://github.com/itonasd/ckk-eval-tool`
 ;   6. Type: `cd auto-evaluation-tool`
 ;   7. Type: `npm i puppeteer`
 ;   8. Goto: ./src/main.js right click on it, click on edit
