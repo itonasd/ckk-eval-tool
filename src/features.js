@@ -139,4 +139,113 @@ export class Main {
 
         await this.page.click('#Savebtns');
     }
+
+    async evaluates() {
+        await this.page.goto("https://www.chakkham.info/site/?feature=analysis&option=grasha_questionnaire", { waitUntil: 'domcontentloaded' });
+
+        await delay(config.configuration.evaluateDelay);
+        for (let i = 1; i <= 60; i++) {
+            if ([2, 11, 17, 32, 34, 38, 41, 50, 56].includes(i)) {
+                await this.page.$eval(`#a${i}`, (input) => {
+                    input.click();
+                });
+            } else if ([4, 7, 8, 14, 20, 26, 27, 35, 37, 40, 43, 47, 52, 53].includes(i)) {
+                await this.page.$eval(`#b${i}`, (input) => {
+                    input.click();
+                });
+            } else if ([1, 6, 10, 16, 18, 22, 44, 48].includes(i)) {
+                await this.page.$eval(`#d${i}`, (input) => {
+                    input.click();
+                });
+            } else {
+                await this.page.$eval(`#e${i}`, (input) => {
+                    input.click();
+                });
+            }
+        }
+
+        await this.page.click('#Savebtns');
+        await delay(config.configuration.evaluateDelay);
+
+        await this.page.goto("https://www.chakkham.info/site/?feature=analysis&option=kolb_questionnaire", { waitUntil: 'domcontentloaded' });
+
+        await delay(config.configuration.evaluateDelay);
+
+        for (let i = 1; i <= 32; i++) {
+            if ([4, 8, 12, 20, 31].includes(i)) {
+                await this.page.$eval(`#d${i}`, (input) => {
+                    input.click();
+                });
+            } else {
+                await this.page.$eval(`#e${i}`, (input) => {
+                    input.click();
+                });
+            }
+        }
+
+        await this.page.click('#Savebtns');
+        await delay(config.configuration.evaluateDelay);
+
+
+        await this.page.goto("https://www.chakkham.info/site/?feature=analysis&option=intelligence_questionnaire", { waitUntil: 'domcontentloaded' });
+
+        await delay(config.configuration.evaluateDelay);
+
+        for (let i = 1; i <= 40; i++) {
+            if ([3,8,22,28 ].includes(i)) {
+                await this.page.$eval(`#b${i}`, (input) => {
+                    input.click();
+                });
+            } else {
+                await this.page.$eval(`#a${i}`, (input) => {
+                    input.click();
+                });
+            }
+        }
+
+        await this.page.click('#Savebtns');
+        await delay(config.configuration.evaluateDelay);
+
+
+        await this.page.goto("https://www.chakkham.info/site/?feature=analysis&option=readiness_questionnaire", { waitUntil: 'domcontentloaded' });
+
+        await delay(config.configuration.evaluateDelay);
+
+        for (let i = 1; i <= 16; i++) {
+            await this.page.$eval(`#a${i}`, (input) => {
+                input.click();
+            });
+        }
+
+        await this.page.click('#Savebtns');
+        await delay(config.configuration.evaluateDelay);
+    }
+
+    async evaluateEQ() {
+        await this.page.goto("https://www.chakkham.info/site/?feature=emotion&option=form", { waitUntil: 'domcontentloaded' });
+
+        await delay(config.configuration.evaluateDelay);
+
+        for (let i = 1; i <= 52; i++) {
+            if ([3, 5, 8, 9, 13, 18, 19, 35, 37, 40, 45, 52].includes(i)) {
+                await this.page.$eval(`#a${i}`, (input) => {
+                    input.click();
+                });
+            } else if ([2, 6, 11, 16, 21, 26, 27, 30, 33, 51].includes(i)) {
+                await this.page.$eval(`#b${i}`, (input) => {
+                    input.click();
+                });
+            } else if ([17, 25, 29, 47].includes(i)) {
+                await this.page.$eval(`#c${i}`, (input) => {
+                    input.click();
+                });
+            } else {
+                await this.page.$eval(`#d${i}`, (input) => {
+                    input.click();
+                });
+            }
+        }
+
+        await this.page.click('#Savebtns');
+    }
 }

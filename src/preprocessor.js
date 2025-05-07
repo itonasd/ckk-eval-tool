@@ -8,6 +8,8 @@ export class EvaluateConfig {
         sdq: false,
         apitude: false,
         teacher: false,
+        general: false,
+        eq: false,
         teacherStatistic: new Array(20).fill(undefined).map((_, i) => {
             return {
                 index: i,
@@ -31,6 +33,8 @@ export class EvaluateConfig {
         if (String(_evaluateType).toLowerCase() == "sdq") this.configuration.sdq = true;
         if (String(_evaluateType).toLowerCase() == "apitude") this.configuration.apitude = true;
         if (String(_evaluateType).toLowerCase() == "teacher") this.configuration.teacher = true;
+        if (String(_evaluateType).toLowerCase() == "general") this.configuration.general = true;
+        if (String(_evaluateType).toLowerCase() == "eq") this.configuration.eq = true;
 
         this.configuration.evaluateDelay = _evaluateDelay;
         this.client.citizenID = _citizenID;
